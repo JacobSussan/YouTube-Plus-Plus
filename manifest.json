@@ -1,0 +1,24 @@
+{
+	"manifest_version": 2,
+	"name": "YouTube++",
+	"description": "Adds tags under YouTube videos and shows search ranking for that tag.",
+	"version": "1.0",
+
+	"content_scripts": [ {
+		"js": [ "tags-script.js" ],
+		"matches": [ "*://*.youtube.com/*" ]
+	} ],
+	
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"https://ajax.googleapis.com/",
+		"<all_urls>"
+	],
+
+	"content_security_policy":"script-src 'self' https://apis.google.com; object-src 'self'"
+}
