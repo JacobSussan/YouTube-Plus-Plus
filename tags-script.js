@@ -122,8 +122,8 @@ function httpGetAsync(theUrl, i, callback) {
 
 		var match = /"keywords":\[(.*?)\]/.exec(html);
 
-		if (match) {
-			return match[1].split(",").map(decode).filter(function (tag) {
+		if (match[1]) {
+			return match[1].replace(/"/g,"").split(",").map(decode).filter(function (tag) {
 				return tag !== "";
 			});
 		}
