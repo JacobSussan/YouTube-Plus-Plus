@@ -4,9 +4,6 @@ var apiKey = "";
 // YouTube™ utilizes the history.pushState() API to navigate to/between videos. Content scripts
 // do not run again after a history state change. To work around that, this content script keeps
 // running to periodically check if a new video was loaded.
-// 
-// I've considered using the webNavigation API, but that requires a browser-wide "Access your
-// browsing activity" permission. That's just not very user-friendly.
 
 function httpGetAsync(theUrl, i, callback) {
 	var xmlHttp = new XMLHttpRequest();
@@ -21,10 +18,7 @@ function httpGetAsync(theUrl, i, callback) {
 (function () {
 	var IS_MATERIAL = document.body.id !== 'body';
 
-	// "Material" refers to YouTube™'s new "material design" layout, which currently seems to
-	// be in beta. To enable it, open youtube.com and run this via the Developer Console (F12):
-	//
-	// document.cookie="PREF=f6=4;path=/;domain=.youtube.com";
+	// "Material" is new new YouTube™ defualt layout
 
 	var UPDATE_INTERVAL = IS_MATERIAL ? 100 : 500;
 
@@ -110,7 +104,6 @@ function httpGetAsync(theUrl, i, callback) {
 	 * Parses the HTML loaded by `loadTagsHtml` and returns an array of tags.
 	 */
 	function parseTagsHtml(html) {
-
 		function decode(tag) {
 			// Decode escaped Unicode strings ("\u0123"):
 			tag = tag.replace(/\\u([\d\w]{4})/gi, function (_, group) {
