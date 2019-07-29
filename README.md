@@ -6,7 +6,7 @@ Google Chrome extension that adds tags under YouTube videos and shows search ran
 # Install
 1) Get API key from https://console.developers.google.com/projectselector/apis/credentials?pli=1&supportedpurview=project
 
-2) Open tags-script.js and change 'x' to your API key.
+2) Open background.js and change 'x' to your API key.
 
 3) Set chrome to developer mode.
 

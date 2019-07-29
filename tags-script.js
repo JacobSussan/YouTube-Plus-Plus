@@ -1,19 +1,6 @@
-// YOU NEED TO EDIT THIS: https://console.developers.google.com/projectselector/apis/credentials?pli=1&supportedpurview=project
-var apiKey = "";
-
 // YouTube™ utilizes the history.pushState() API to navigate to/between videos. Content scripts
 // do not run again after a history state change. To work around that, this content script keeps
 // running to periodically check if a new video was loaded.
-
-function httpGetAsync(theUrl, i, callback) {
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.onreadystatechange = function() { 
-	if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-		callback(xmlHttp.responseText, i);
-	}
-	xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-	xmlHttp.send(null);
-}
 
 (function () {
 	var IS_MATERIAL = document.body.id !== 'body';
@@ -165,10 +152,19 @@ function httpGetAsync(theUrl, i, callback) {
 			var tag = tags[i];
 			// get video tag rank data
 			q = tag.replace(/\s+/g, '+');
-			httpGetAsync(
-				"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=" + q + "&regionCode=US&relevanceLanguage=EN&fields=items(id%2FvideoId%2Csnippet%2Ftitle)&key=" + apiKey,
-				i,
-				setYouTubeData);
+
+			var port = chrome.extension.connect({
+				name: "Fetch"
+			});
+
+			var message = {};
+			message.q = q;
+			message.i = i;
+			port.postMessage(message);
+			port.onMessage.addListener(function(message) {
+				setYouTubeData(message.result, message.i);
+			});
+
 			generateRank(tag, i);
 
 			// Create span:
