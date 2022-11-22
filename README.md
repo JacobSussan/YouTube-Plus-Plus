@@ -1,5 +1,5 @@
 # YouTube-Plus-Plus
-Google Chrome extension that adds tags under YouTube videos and shows search ranking for that tag using the Google API.
+Chrome/Chromium extension that adds tags under YouTube videos and shows search ranking for that tag using the Google API.
 
 ![image of tags](https://i.imgur.com/wiKcjx8.png)
 
