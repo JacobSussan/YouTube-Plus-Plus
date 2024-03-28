@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube++ Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+			width: 400px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube++ Settings</h1>
+    <p>Enter your YouTube Data API v3 key:</p>
+    <input type="text" id="apiKeyInput">
+    <button id="saveButton">Save</button>
+
+    <p>You need to edit your API key here: <a href="https://console.developers.google.com/projectselector/apis/credentials?pli=1&supportedpurview=project" target="_blank">Google Developers Console</a></p>
+    <p>Enable YouTube Data API v3 here: <a href="https://console.developers.google.com/apis/api/youtube.googleapis.com/overview" target="_blank">YouTube Data API v3</a></p>
+
+    <script src="popup.js" type="text/javascript"></script>
+</body>
+</html>
