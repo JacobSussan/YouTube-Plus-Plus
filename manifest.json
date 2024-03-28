@@ -12,7 +12,7 @@
 		}
 	},
 	"content_scripts": [ {
-		"js": [ "tags-script.js" ],
+		"js": [ "tags-script.js", "shorts.js" ],
 		"matches": [ "*://*.youtube.com/*" ]
 	} ],
 	"background": {

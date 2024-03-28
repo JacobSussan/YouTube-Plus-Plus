@@ -102,7 +102,7 @@
 
 		var match = /"keywords":\[(.*?)\]/.exec(html);
 
-		if (match[1]) {
+		if (match && match[1]) {
 			return match[1].replace(/"/g,"").split(",").map(decode).filter(function (tag) {
 				return tag !== "";
 			});
