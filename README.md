@@ -14,4 +14,4 @@ Chrome/Chromium extension that adds tags under YouTube videos and shows search r
 
 5) Click on the extension icon and enter your API key
 
-![image of api](https://i.imgur.com/6r4uAav.png)
+![image of api popup](https://i.imgur.com/6r4uAav.png)
